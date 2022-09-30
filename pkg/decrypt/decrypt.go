@@ -6,9 +6,10 @@ import (
 	"crypto/sha1"
 	"database/sql"
 	"errors"
-	"macCookies/pkg/types"
-	"macCookies/pkg/utils"
 	"os"
+
+	"github.com/kawakatz/macCookies/pkg/types"
+	"github.com/kawakatz/macCookies/pkg/utils"
 
 	"github.com/cixtor/binarycookies"
 	_ "github.com/mattn/go-sqlite3"

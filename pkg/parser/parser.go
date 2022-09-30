@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"macCookies/pkg/types"
 	"strconv"
+
+	"github.com/kawakatz/macCookies/pkg/types"
 )
 
 func CookieQuickManager(decryptedCookies []types.Cookie) {
