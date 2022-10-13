@@ -10,7 +10,6 @@ This tool is intended to be used with C2.
 
 # Installation
 ```sh
-# install grepfiles
 ➜  ~ go install -v github.com/kawakatz/macCookies/cmd/macCookies@latest
 ```
 
