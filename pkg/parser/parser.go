@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strconv"
+	"time"
 
 	"github.com/kawakatz/macCookies/pkg/types"
 )
@@ -15,7 +16,7 @@ func CookieQuickManager(decryptedCookies []types.Cookie) {
 		cookieQuickManager := types.CookieQuickManager{
 			PathRaw:           Cookie.Path,
 			HostRaw:           "https://" + Cookie.Host + "/",
-			ExpiresRaw:        strconv.FormatInt(Cookie.ExpireDate.Unix(), 10),
+			ExpiresRaw:        strconv.FormatInt(time.Now().AddDate(1, 0, 0).Unix(), 10),
 			ContentRaw:        Cookie.Value,
 			NameRaw:           Cookie.KeyName,
 			SameSiteRaw:       "no_restriction",
