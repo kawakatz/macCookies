@@ -15,7 +15,7 @@ This tool is intended to be used with C2.
 
 ## Usage
 ### Safari
-- FDA (including Finder automation permission) is required to access Cookies.binarycookies
+- FDA (or Finder automation permission) is required to access Cookies.binarycookies
 - Cookies.binarycookies is not encrypted
 
 ```sh
