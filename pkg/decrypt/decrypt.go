@@ -144,11 +144,15 @@ func decryptChromeAES(secretKey, encryptValue []byte) ([]byte, error) {
 }
 
 func decryptWindowsChrome(secretKey, encryptValue []byte) ([]byte, error) {
-	block, _ := aes.NewCipher(secretKey)
-	gcm, _ := cipher.NewGCM(block)
+	if len(encryptValue) > 3 {
+		block, _ := aes.NewCipher(secretKey)
+		gcm, _ := cipher.NewGCM(block)
 
-	nonce := encryptValue[3 : 3+12]
-	return gcm.Open(nil, nonce, encryptValue[3+12:], nil)
+		nonce := encryptValue[3 : 3+12]
+		return gcm.Open(nil, nonce, encryptValue[3+12:], nil)
+	} else {
+		return nil, errDecryptFailed
+	}
 }
 
 func aes128CBCDecrypt(key, iv, encryptPass []byte) ([]byte, error) {
