@@ -29,5 +29,7 @@ Temporary Items
 # kawakatz
 bin/
 Cookies
+Cookies.binarycookies
+cookies.sqlite
 macCookies.json
 .idea/

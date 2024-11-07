@@ -137,7 +137,16 @@ func decryptChromeAES(secretKey, encryptValue []byte) ([]byte, error) {
 		}
 		var chromeIV = []byte{32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32}
 		//var chromeIV = []byte{20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20}
-		return aes128CBCDecrypt(secretKey, chromeIV, encryptValue[3:])
+
+		//version := string(encryptValue[:3])
+		value, err := aes128CBCDecrypt(secretKey, chromeIV, encryptValue[3:])
+
+		// if v20, remove first 32 bytes
+		if true {
+			value = value[32:]
+		}
+
+		return value, err
 	} else {
 		return nil, errDecryptFailed
 	}
