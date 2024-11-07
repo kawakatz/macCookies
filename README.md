@@ -8,6 +8,9 @@
 macCookies decrypt cookies stored in macOS browsers for pentesters.<br>
 This tool is intended to be used with C2.
 
+
+2024/11/07: This tool can decrypt "v20" cookies with a valid masterkey and -win flag.
+
 # Installation
 ```sh
 ➜  ~ go install -v github.com/kawakatz/macCookies/cmd/macCookies@latest
@@ -47,9 +50,10 @@ There are also cases where it is possible to bypass keychain client validation b
 
 #### Option
 It is also possible to decrypt Cookies retrieved from Windows.
-In that case, use <a href="https://github.com/crypt0p3g/bof-collection/tree/main/ChromiumKeyDump">ChromiumKeyDump</a> to retrieve the encryption key.
+In that case, use <a href="https://github.com/crypt0p3g/bof-collection/tree/main/ChromiumKeyDump">ChromiumKeyDump</a> to retrieve a masterkey.<br>
+For "v20" cookies, you must use a different method to retrieve a masterkey.
 ```sh
-➜  ~ macCookies -win Chrome Cookies <encryption key>
+➜  ~ macCookies -win Chrome Cookies <masterkey>
 ```
 
 ## References

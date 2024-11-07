@@ -149,7 +149,16 @@ func decryptWindowsChrome(secretKey, encryptValue []byte) ([]byte, error) {
 		gcm, _ := cipher.NewGCM(block)
 
 		nonce := encryptValue[3 : 3+12]
-		return gcm.Open(nil, nonce, encryptValue[3+12:], nil)
+		version := string(encryptValue[:3])
+
+		value, err := gcm.Open(nil, nonce, encryptValue[3+12:], nil)
+
+		if version == "v20" {
+			value = value[32:]
+		}
+
+		// if v20, remove first 32 bytes
+		return value, err
 	} else {
 		return nil, errDecryptFailed
 	}
