@@ -3,8 +3,15 @@
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
 <a href="https://github.com/kawakatz/macCookies/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
 <a href="https://goreportcard.com/badge/github.com/kawakatz/macCookies"><img src="https://goreportcard.com/badge/github.com/kawakatz/macCookies"></a>
+<a href="https://github.com/kawakatz/macCookies/releases"><img src="https://img.shields.io/github/v/release/kawakatz/macCookies"></a>
 <a href="https://github.com/kawakatz/macCookies/blob/master/go.mod"><img src="https://img.shields.io/github/go-mod/go-version/kawakatz/macCookies"></a>
 <a href="https://twitter.com/kawakatz"><img src="https://img.shields.io/twitter/follow/kawakatz.svg?logo=twitter"></a>
+</p>
+
+<p align="center">
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a>  •
+  <a href="#references">References</a>
 </p>
 
 macCookies decrypt cookies stored in macOS browsers for pentesters.<br>
@@ -18,7 +25,7 @@ This tool is intended to be used with C2.
 ➜  ~ go install -v github.com/kawakatz/macCookies/cmd/macCookies@latest
 ```
 
-## Usage
+# Usage
 ### Safari
 - FDA (including Finder automation permission) is required to access Cookies.binarycookies
 - Cookies.binarycookies is not encrypted
@@ -58,7 +65,7 @@ For "v20" cookies, you must use a different method to retrieve a masterkey.
 ➜  ~ macCookies -win Chrome Cookies <masterkey>
 ```
 
-## References
+# References
 - https://github.com/cixtor/binarycookies (MIT License)<br>
     decryption logic for Safari
 - https://github.com/moonD4rk/HackBrowserData (MIT License)<br>
