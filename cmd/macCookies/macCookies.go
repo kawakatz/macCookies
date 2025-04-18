@@ -12,21 +12,20 @@ import (
 
 func main() {
 	osPtr := flag.Bool("win", false, "decrypt Windows' Cookies")
+	stracePtr := flag.Bool("storageace", false, "parse Cookies for StoraeAce")
 	flag.Parse()
 
 	cmdArgs := flag.Args()
 	browserName := cmdArgs[0]
 	cookiesFile := cmdArgs[1]
 
+	var decryptedCookies []types.Cookie
 	if strings.EqualFold(browserName, "Firefox") {
-		decryptedCookies := decrypt.FirefoxCookies(cookiesFile)
-		parser.CookieQuickManager(decryptedCookies)
+		decryptedCookies = decrypt.FirefoxCookies(cookiesFile)
 	} else if strings.EqualFold(browserName, "Safari") {
-		decryptedCookies := decrypt.SafariCookies(cookiesFile)
-		parser.CookieQuickManager(decryptedCookies)
+		decryptedCookies = decrypt.SafariCookies(cookiesFile)
 	} else {
 		var secretKey []byte
-		var decryptedCookies []types.Cookie
 		if !*osPtr {
 			//fmt.Println("mac")
 			browserPassword := cmdArgs[2]
@@ -38,7 +37,11 @@ func main() {
 			secretKey, _ = base64.StdEncoding.DecodeString(secretKeyBase64)
 			decryptedCookies = decrypt.ChromeCookies(cookiesFile, secretKey, "win")
 		}
+	}
 
+	if *stracePtr {
+		parser.StorageAce(decryptedCookies)
+	} else {
 		parser.CookieQuickManager(decryptedCookies)
 	}
 }

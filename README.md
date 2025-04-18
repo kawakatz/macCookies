@@ -65,6 +65,11 @@ For "v20" cookies, you must use a different method to retrieve a masterkey.
 ➜  ~ macCookies -win Chrome Cookies <masterkey>
 ```
 
+The tool can also output in a format that can be imported by [StorageAce](https://chromewebstore.google.com/detail/storageace/cpbgcbmddckpmhfbdckeolkkhkjjmplo), a Google Chrome extension.
+```sh
+➜  ~ macCookies -storageace Chrome Cookies <Chrome Safe Storage>
+```
+
 # References
 - https://github.com/cixtor/binarycookies (MIT License)<br>
     decryption logic for Safari
